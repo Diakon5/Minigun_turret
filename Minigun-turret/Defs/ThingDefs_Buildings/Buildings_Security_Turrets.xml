@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<ThingDef ParentName="AutocannonTurret">
+		<defName>diakon14_Turret_Minigun</defName>
+		<label>Minigun turret</label>
+		<description>A multi-barrel, rapid-firing turret. An enlarged version of the Minigun, this turret is able to spray the enemies with a seemingly endless rain of bullets. However, despite the insane fire rate, it's rather inaccurate, especially at long ranges, and can't fire at all close up. May explode when damaged.</description>
+		<uiIconPath>Things/Building/Security/TurretAutocannon_MenuIcon</uiIconPath>
+		<statBases>
+		  <ShootingAccuracyTurret>0.96</ShootingAccuracyTurret> <!-- like level 8 human shooter -->
+		</statBases>
+		<costList>
+		  <Steel>350</Steel>
+		  <Plasteel>40</Plasteel>
+		  <ComponentIndustrial>6</ComponentIndustrial>
+		</costList>
+		<comps>
+		  <li Class="CompProperties_Explosive">
+			<wickTicks>240</wickTicks>
+			<explosiveRadius>5.9</explosiveRadius>
+			<explosiveDamageType>Bomb</explosiveDamageType>
+			<chanceNeverExplodeFromDamage>0.5</chanceNeverExplodeFromDamage>
+		  </li>
+		  <li Class="CompProperties_Forbiddable"/>
+		  <li Class="CompProperties_Power">
+			<compClass>CompPowerTrader</compClass>
+			<basePowerConsumption>150</basePowerConsumption>
+		  </li>
+		  <li Class="CompProperties_Flickable"/>
+		  <li Class="CompProperties_Breakdownable"/>
+		  <li Class="CompProperties_Refuelable">
+			<fuelLabel>Shots until rearm</fuelLabel>
+			<fuelGizmoLabel>Bullets</fuelGizmoLabel>
+			<outOfFuelMessage>Cannot shoot: No Ammo</outOfFuelMessage>
+			<fuelFilter><thingDefs><li>Uranium</li></thingDefs></fuelFilter>
+			<fuelCapacity>720</fuelCapacity>       <!-- 1 bursts -->
+			<fuelMultiplier>1</fuelMultiplier> <!-- 1 steel per shot, 720 per full rearm -->
+			<initialFuelPercent>1</initialFuelPercent>
+			<autoRefuelPercent>0.5</autoRefuelPercent>
+			<showFuelGizmo>true</showFuelGizmo>
+			<minimumFueledThreshold>1</minimumFueledThreshold>
+			<factorByDifficulty>false</factorByDifficulty>
+			<consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
+			<fuelIconPath>UI/Overlays/Barrel</fuelIconPath>
+		  </li>
+		</comps>
+		<building>
+		  <turretGunDef>diakon14_Gun_TurretMinigun</turretGunDef>
+		  <turretBurstCooldownTime>5</turretBurstCooldownTime>
+		</building>
+		<researchPrerequisites>
+		  <li>HeavyTurrets</li>
+		  <li>MultibarrelWeapons</li>
+		</researchPrerequisites>
+	  </ThingDef>
+   <ThingDef ParentName="BaseWeaponTurret">
+    <defName>diakon14_Gun_TurretMinigun</defName>
+    <label>gatling</label>
+    <description>A self-loading large-bore cannon designed to attach to a turret.</description>
+    <graphicData>
+      <texPath>Things/Building/Security/TurretAutocannon_Top</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(2,2)</drawSize>
+    </graphicData>
+    <statBases>
+      <AccuracyTouch>0.17</AccuracyTouch>
+      <AccuracyShort>0.28</AccuracyShort>
+      <AccuracyMedium>0.28</AccuracyMedium>
+      <AccuracyLong>0.18</AccuracyLong>
+      <RangedWeapon_Cooldown>5</RangedWeapon_Cooldown>
+      <DeteriorationRate>0</DeteriorationRate>
+      <Mass>40</Mass>
+      <Flammability>0</Flammability>
+    </statBases>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <defaultProjectile>Bullet_Minigun</defaultProjectile>
+        <warmupTime>0</warmupTime>
+        <minRange>8.9</minRange>
+        <range>32.9</range>
+        <ticksBetweenBurstShots>5</ticksBetweenBurstShots>
+        <burstShotCount>720</burstShotCount>
+        <soundCast>Shot_Minigun</soundCast>
+        <soundCastTail>GunTail_Medium</soundCastTail>
+        <muzzleFlashScale>12</muzzleFlashScale>
+        <consumeFuelPerShot>1</consumeFuelPerShot>
+      </li>
+    </verbs>
+  </ThingDef>
+</Defs>
