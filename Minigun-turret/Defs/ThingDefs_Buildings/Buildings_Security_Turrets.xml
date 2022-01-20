@@ -31,7 +31,7 @@
 			<fuelLabel>Shots until rearm</fuelLabel>
 			<fuelGizmoLabel>Bullets</fuelGizmoLabel>
 			<outOfFuelMessage>Cannot shoot: No Ammo</outOfFuelMessage>
-			<fuelFilter><thingDefs><li>Uranium</li></thingDefs></fuelFilter>
+			<fuelFilter><thingDefs><li>Steel</li></thingDefs></fuelFilter>
 			<fuelCapacity>720</fuelCapacity>       <!-- 1 bursts -->
 			<fuelMultiplier>1</fuelMultiplier> <!-- 1 steel per shot, 720 per full rearm -->
 			<initialFuelPercent>1</initialFuelPercent>
